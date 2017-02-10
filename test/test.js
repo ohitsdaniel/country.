@@ -382,3 +382,86 @@ describe('lib.currencies', function() {
 		});
 	});
 });
+
+describe('lib.regions', function() {
+	describe('#Identifier->Region', function() {
+		it('Central Asia', function() {
+			assert.equal(lib.regions('centralAsia').name, 'Central Asia');
+		});
+		it('Southern Asia', function() {
+			assert.isNotNull(lib.regions('southernAsia'));
+		});
+		it('Southeast Asia', function() {
+			assert.equal(lib.regions('southeastAsia').name, 'Southeast Asia');
+		});
+		it('East Asia', function() {
+			assert.isNotNull(lib.regions('eastAsia'));
+		});
+		it('Western Asia', function() {
+			assert.isNotNull(lib.regions('westernAsia'));
+		});
+		it('Central Africa', function() {
+			assert.isNotNull(lib.regions('centralAfrica'));
+		});
+		it('North Africa', function() {
+			assert.isNotNull(lib.regions('northAfrica'));
+		});
+		it('Southern Africa', function() {
+			assert.isNotNull(lib.regions('southernAfrica'));
+		});
+		it('East Africa', function() {
+			assert.isNotNull(lib.regions('southernAfrica'));
+		});
+		it('West Africa', function() {
+			assert.isNotNull(lib.regions('westAfrica'));
+		});
+		it('Central America', function() {
+			assert.isNotNull(lib.regions('centralAmerica'));
+		});
+		it('Northern America', function() {
+			assert.isNotNull(lib.regions('northernAmerica'));
+		});
+		it('Caribbean', function() {
+			assert.isNotNull(lib.regions('caribbean'));
+		});
+		it('South America', function() {
+			assert.isNotNull(lib.regions('southAmerica'));
+		});
+		it('Antartica', function() {
+			assert.isNotNull(lib.regions('antartica'));
+		});
+		it('Northern Europe', function() {
+			assert.isNotNull(lib.regions('northernEurope'));
+		});
+		it('Southern Europe', function() {
+			assert.isNotNull(lib.regions('southernEurope'));
+		});
+		it('Eastern Europe', function() {
+			assert.isNotNull(lib.regions('easternEurope'));
+		});
+		it('Western Europe', function() {
+			assert.isNotNull(lib.regions('westernEurope'));
+		});
+		it('Australia', function() {
+			assert.isNotNull(lib.regions('australia'));
+		});
+		it('Melanesia', function() {
+			assert.isNotNull(lib.regions('melanesia'));
+		});
+		it('Micronesia', function() {
+			assert.isNotNull(lib.regions('micronesia'));
+		});
+		it('Polynesia', function() {
+			assert.isNotNull(lib.regions('polynesia'));
+		});
+	});
+	describe('#Extra functionality', function() {
+		it('Name->Region', function() {
+			assert.equal(lib.regions('Central Asia').name, 'Central Asia');
+		});
+
+		it('All Regions', function() {
+			assert.typeOf(lib.regions(), 'object');
+		});
+	});
+});
