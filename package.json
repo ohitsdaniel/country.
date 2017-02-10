@@ -1,7 +1,7 @@
 {
-  "name": "countrysynonyms",
+  "name": "country.",
   "version": "1.0.0",
-  "description": "A simple library to determine synonyms for countries. ",
+  "description": "country. -  ISO-codes, currencies, languages... All you need to know about countries.",
   "main": "./lib/countrysynonyms.js",
   "scripts": {
     "test": "mocha"
@@ -30,5 +30,6 @@
   "bugs": {
     "url": "https://github.com/ohitsdaniel/countrysynonyms/issues"
   },
-  "homepage": "https://github.com/ohitsdaniel/countrysynonyms#readme"
+  "homepage": "https://github.com/ohitsdaniel/countrysynonyms#readme",
+  "engines" : { "node" : ">=6.9.3" }
 }
