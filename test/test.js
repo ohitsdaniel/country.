@@ -205,3 +205,73 @@ describe('lib.languages', function() {
 		});
 	});
 });
+
+describe('lib.currencies', function() {
+	describe('#Germany', function() {
+		it('ISO1->currencies', function() {
+			assert.include(lib.currencies('276'), {
+				"currency": "Euro",
+				"alphaCode": "EUR",
+				"numCode": "978",
+				"minorUnit": "2",
+				"symbol": "€"
+			});
+		});
+		it('ISO2->currencies', function() {
+			assert.include(lib.currencies('DE'), {
+				"currency": "Euro",
+				"alphaCode": "EUR",
+				"numCode": "978",
+				"minorUnit": "2",
+				"symbol": "€"
+			});
+		});
+		it('ISO3->currencies', function() {
+			assert.include(lib.currencies('DEU'), {
+				"currency": "Euro",
+				"alphaCode": "EUR",
+				"numCode": "978",
+				"minorUnit": "2",
+				"symbol": "€"
+			});
+		});
+
+		it('Name->currencies', function() {
+			assert.include(lib.currencies('Germany', 'en'), {
+				"currency": "Euro",
+				"alphaCode": "EUR",
+				"numCode": "978",
+				"minorUnit": "2",
+				"symbol": "€"
+			});
+		});
+	});
+	describe('#Exceptional behaviour', function() {
+		it('trim needed', function() {
+			assert.include(lib.currencies(' 276'), {
+				"currency": "Euro",
+				"alphaCode": "EUR",
+				"numCode": "978",
+				"minorUnit": "2",
+				"symbol": "€"
+			});
+			assert.include(lib.currencies('276 '), {
+				"currency": "Euro",
+				"alphaCode": "EUR",
+				"numCode": "978",
+				"minorUnit": "2",
+				"symbol": "€"
+			});
+			assert.include(lib.currencies(' 276 '), {
+				"currency": "Euro",
+				"alphaCode": "EUR",
+				"numCode": "978",
+				"minorUnit": "2",
+				"symbol": "€"
+			});
+		});
+		it('Exception Handling', function() {
+			assert.throws(lib.languages, /INVALIDCODE|INVALIDFORMAT|INVALIDCOUNTRY/);
+		});
+	});
+});
