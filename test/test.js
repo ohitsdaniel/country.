@@ -1,5 +1,4 @@
-'use strict';
-const assert = require('chai').assert,
+var assert = require('chai').assert,
 	lib = require('..');
 
 describe('lib.names', function() {
