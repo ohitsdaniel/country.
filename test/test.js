@@ -166,45 +166,45 @@ describe('lib.iso3', function() {
 	});
 });
 
-describe('lib.country', function() {
+describe('lib.data', function() {
 	describe('#Germany', function() {
 		it('ISO1->Country', function() {
-			assert.equal(lib.country('276').ISO1, '276');
+			assert.equal(lib.data('276').ISO1, '276');
 		});
 
 		it('ISO2->Country', function() {
-			assert.equal(lib.country('DE').ISO2, 'DE');
+			assert.equal(lib.data('DE').ISO2, 'DE');
 		});
 
 		it('ISO3->Country', function() {
-			assert.equal(lib.country('DEU').ISO3, 'DEU');
+			assert.equal(lib.data('DEU').ISO3, 'DEU');
 		});
 
 		it('Name->Country', function() {
-			assert.equal(lib.country('Germany', 'en').ISO3, 'DEU');
+			assert.equal(lib.data('Germany', 'en').ISO3, 'DEU');
 		});
 	});
 	describe('#Exceptional behaviour', function() {
 		it('German name', function() {
-			assert.equal(lib.country('Deutschland', 'de').ISO3, 'DEU');
+			assert.equal(lib.data('Deutschland', 'de').ISO3, 'DEU');
 		});
 
 		it('Unsupported language', function() {
 			try {
-				lib.country('Deutschland', 'asdf');
+				lib.data('Deutschland', 'asdf');
 			} catch (err) {
 				assert(/INVALIDLANGUAGE/.test(err));
 			}
 		});
 
 		it('trim needed', function() {
-			assert.equal(lib.country(' 276').ISO1, '276');
-			assert.equal(lib.country('276 ').ISO1, '276');
-			assert.equal(lib.country(' 276 ').ISO1, '276');
+			assert.equal(lib.data(' 276').ISO1, '276');
+			assert.equal(lib.data('276 ').ISO1, '276');
+			assert.equal(lib.data(' 276 ').ISO1, '276');
 		});
 
 		it('Exception Handling', function() {
-			assert.throws(lib.country, /INVALIDCODE|INVALIDFORMAT|INVALIDCOUNTRY|INVALIDLANGUAGE/);
+			assert.throws(lib.data, /INVALIDCODE|INVALIDFORMAT|INVALIDCOUNTRY|INVALIDLANGUAGE/);
 		});
 	});
 });
