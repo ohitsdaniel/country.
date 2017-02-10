@@ -142,3 +142,66 @@ describe('lib.country', function() {
 		});
 	});
 });
+
+describe('lib.languages', function() {
+	describe('#Germany', function() {
+		it('ISO1->languages', function() {
+			assert.include(lib.languages('276'), {
+				"alpha2": "de",
+				"alpha3": "deu",
+				"bibliographic": "ger",
+				"name": "German"
+			});
+		});
+		it('ISO2->languages', function() {
+			assert.include(lib.languages('DE'), {
+				"alpha2": "de",
+				"alpha3": "deu",
+				"bibliographic": "ger",
+				"name": "German"
+			});
+		});
+		it('ISO3->languages', function() {
+			assert.include(lib.languages('DEU'), {
+				"alpha2": "de",
+				"alpha3": "deu",
+				"bibliographic": "ger",
+				"name": "German"
+			});
+		});
+
+		it('Name->languages', function() {
+			assert.include(lib.languages('Germany', 'en'), {
+				"alpha2": "de",
+				"alpha3": "deu",
+				"bibliographic": "ger",
+				"name": "German"
+			});
+		});
+	});
+	describe('#Exceptional behaviour', function() {
+		it('trim needed', function() {
+			assert.include(lib.languages(' 276'), {
+				"alpha2": "de",
+				"alpha3": "deu",
+				"bibliographic": "ger",
+				"name": "German"
+			});
+			assert.include(lib.languages('276 '), {
+				"alpha2": "de",
+				"alpha3": "deu",
+				"bibliographic": "ger",
+				"name": "German"
+			});
+			assert.include(lib.languages(' 276 '), {
+				"alpha2": "de",
+				"alpha3": "deu",
+				"bibliographic": "ger",
+				"name": "German"
+			});
+		});
+		it('Exception Handling', function() {
+			assert.throws(lib.languages, /INVALIDCODE|INVALIDFORMAT|INVALIDCOUNTRY/);
+		});
+	});
+});
