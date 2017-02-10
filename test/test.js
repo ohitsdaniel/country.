@@ -1,3 +1,4 @@
+'use strict';
 const assert = require('chai').assert,
 	lib = require('..');
 
@@ -6,7 +7,7 @@ describe('lib.names', function() {
 		it('ISO1->Name', function() {
 			assert.include(lib.names('276'), 'Germany');
 		});
-		
+
 		it('ISO2->Name', function() {
 			assert.include(lib.names('DE'), 'Germany');
 		});
