@@ -4,12 +4,14 @@
   "description": "A simple library to determine synonyms for countries. ",
   "main": "./lib/countrysynonyms.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
-  "dependencies": {
+  "devDependencies": {
     "i18n-iso-countries": "^1.10.0",
     "xlsx": "^0.8.1",
-    "country-data": "^0.0.31"
+    "country-data": "^0.0.31",
+    "mocha": "~3.2.0",
+    "chai": "~3.5.0"
   },
   "repository": {
     "type": "git",
