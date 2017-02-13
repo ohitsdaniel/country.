@@ -603,9 +603,20 @@ describe('lib.regions', function() {
 		it('Name->Region', function() {
 			assert.equal(lib.regions('Central Asia').name, 'Central Asia');
 		});
-
 		it('All Regions', function() {
 			assert.typeOf(lib.regions(), 'object');
+		});
+		it('Asia', function() {
+			assert.typeOf(lib.regions('asia'), 'object');
+		});
+		it('Europe', function() {
+			assert.typeOf(lib.regions('europe'), 'object');
+		});
+		it('America', function() {
+			assert.typeOf(lib.regions('America'), 'object');
+		});
+		it('Other', function() {
+			assert.typeOf(lib.regions('other'), 'object');
 		});
 	});
 });
