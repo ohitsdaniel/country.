@@ -166,6 +166,49 @@ describe('lib.iso3', function() {
 	});
 });
 
+describe('lib.ioc', function() {
+	describe('#Germany', function() {
+		it('ISO1->IOC', function() {
+			assert.equal(lib.ioc('276'), 'GER');
+		});
+
+		it('ISO2->ISO3', function() {
+			assert.equal(lib.ioc('DE'), 'GER');
+		});
+
+		it('ISO3->ISO3', function() {
+			assert.equal(lib.ioc('DEU'), 'GER');
+		});
+
+		it('Name->ISO3', function() {
+			assert.equal(lib.ioc('Germany', 'en'), 'GER');
+		});
+	});
+	describe('#Exceptional behaviour', function() {
+		it('German name', function() {
+			assert.equal(lib.ioc('Deutschland', 'de'), 'GER');
+		});
+
+		it('Unsupported language', function() {
+			try {
+				assert.equal(lib.ioc('Deutschland', 'asdf'), 'GER');
+			} catch (err) {
+				assert(/INVALIDLANGUAGE/.test(err));
+			}
+		});
+
+		it('trim needed', function() {
+			assert.equal(lib.ioc(' 276'), 'GER');
+			assert.equal(lib.ioc('276 '), 'GER');
+			assert.equal(lib.ioc(' 276 '), 'GER');
+		});
+
+		it('Exception Handling', function() {
+			assert.throws(lib.ioc, /INVALIDCODE|INVALIDFORMAT|INVALIDCOUNTRY|INVALIDLANGUAGE/);
+		});
+	});
+});
+
 describe('lib.data', function() {
 	describe('#Germany', function() {
 		it('ISO1->Country', function() {
