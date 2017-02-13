@@ -69,7 +69,7 @@ This library also classifies countries into regions. The following regions are s
 Require country. in your project. 
 ```js
 'use strict';
-const country = require('country.');
+const country = require('countryinfo');
 ```
 
 ### ISO 3166-1 codes
