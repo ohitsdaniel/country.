@@ -512,6 +512,21 @@ describe('lib.currencies', function() {
 	});
 });
 
+describe('lib.regionsData', function() {
+	it('All regions data', function() {
+		assert.isObject(lib.regionsData());
+	});
+	it('Central Asia (key)', function() {
+		assert.isObject(lib.regionsData('centralAsia'));
+	});
+	it('Southern Asia (name)', function() {
+		let region = lib.regionsData('Southern Asia');
+
+		assert.isObject(region);
+		assert.equal(region.countries[0].ISO2, 'AF');
+	});
+});
+
 describe('lib.regions', function() {
 	describe('#Identifier->Region', function() {
 		it('Central Asia', function() {
