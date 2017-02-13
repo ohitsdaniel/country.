@@ -1,6 +1,6 @@
 {
   "name": "country.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "country. -  ISO-codes, currencies, languages... All you need to know about countries.",
   "main": "./lib/countrysynonyms.js",
   "scripts": {
@@ -24,7 +24,16 @@
     "3166",
     "3166-2",
     "3166-3",
-    "3166-1"
+    "3166-1",
+    "currencies",
+    "languages",
+    "callingCodes",
+    "countryData",
+    "datasource",
+    "ioc",
+    "regions",
+    "countries",
+    "data"
   ],
   "author": "Daniel Peter",
   "license": "MIT",
