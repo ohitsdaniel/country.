@@ -2,7 +2,7 @@ var assert = require('chai').assert,
 	lib = require('..');
 
 describe('lib.names', function() {
-	describe('#Germany (en)', function() {
+	describe('#Germany 🇩🇪 (en)', function() {
 		it('ISO1->Name', function() {
 			assert.include(lib.names('276'), 'Germany');
 		});
@@ -19,7 +19,7 @@ describe('lib.names', function() {
 			assert.include(lib.names('Germany'), 'Germany');
 		});
 	});
-	describe('#United Kingdom (en)', function() {
+	describe('#United Kingdom (en) 🇬🇧', function() {
 		it('ISO1->Name', function() {
 			assert.include(lib.names('826'), 'United Kingdom');
 		});
@@ -37,7 +37,7 @@ describe('lib.names', function() {
 		});
 	});
 
-	describe('#USA (en)', function() {
+	describe('#USA (en) 🇺🇸', function() {
 		it('ISO1->Name', function() {
 			assert.include(lib.names('840'), 'United States');
 		});
@@ -81,7 +81,7 @@ describe('lib.names', function() {
 })
 
 describe('lib.iso2', function() {
-	describe('#Germany', function() {
+	describe('#Germany 🇩🇪', function() {
 		it('ISO1->ISO2', function() {
 			assert.equal(lib.iso2('276'), 'DE');
 		});
@@ -124,7 +124,7 @@ describe('lib.iso2', function() {
 });
 
 describe('lib.iso3', function() {
-	describe('#Germany', function() {
+	describe('#Germany 🇩🇪', function() {
 		it('ISO1->ISO3', function() {
 			assert.equal(lib.iso3('276'), 'DEU');
 		});
@@ -167,7 +167,7 @@ describe('lib.iso3', function() {
 });
 
 describe('lib.ioc', function() {
-	describe('#Germany', function() {
+	describe('#Germany 🇩🇪', function() {
 		it('ISO1->IOC', function() {
 			assert.equal(lib.ioc('276'), 'GER');
 		});
@@ -209,8 +209,51 @@ describe('lib.ioc', function() {
 	});
 });
 
+describe('lib.emoji', function() {
+	describe('#Germany 🇩🇪', function() {
+		it('ISO1->emoji', function() {
+			assert.equal(lib.emoji('276'), '🇩🇪');
+		});
+
+		it('ISO2->emoji', function() {
+			assert.equal(lib.emoji('DE'), '🇩🇪');
+		});
+
+		it('ISO3->emoji', function() {
+			assert.equal(lib.emoji('DEU'), '🇩🇪');
+		});
+
+		it('Name->emoji', function() {
+			assert.equal(lib.emoji('Germany', 'en'), '🇩🇪');
+		});
+	});
+	describe('#Exceptional behaviour', function() {
+		it('German name', function() {
+			assert.equal(lib.emoji('Deutschland', 'de'), '🇩🇪');
+		});
+
+		it('Unsupported language', function() {
+			try {
+				lib.emoji('Deutschland', 'asdf');
+			} catch (err) {
+				assert(/INVALIDLANGUAGE/.test(err));
+			}
+		});
+
+		it('trim needed', function() {
+			assert.equal(lib.emoji(' 276'), '🇩🇪');
+			assert.equal(lib.emoji('276 '), '🇩🇪');
+			assert.equal(lib.emoji(' 276 '), '🇩🇪');
+		});
+
+		it('Exception Handling', function() {
+			assert.throws(lib.emoji, /INVALIDCODE|INVALIDFORMAT|INVALIDCOUNTRY|INVALIDLANGUAGE/);
+		});
+	});
+});
+
 describe('lib.callingCodes', function() {
-	describe('#Germany', function() {
+	describe('#Germany 🇩🇪', function() {
 		it('ISO1->callingCodes', function() {
 			assert.include(lib.callingCodes('276'), '+49');
 		});
@@ -253,7 +296,7 @@ describe('lib.callingCodes', function() {
 });
 
 describe('lib.data', function() {
-	describe('#Germany', function() {
+	describe('#Germany 🇩🇪', function() {
 		it('ISO1->Country', function() {
 			assert.equal(lib.data('276').ISO1, '276');
 		});
@@ -296,7 +339,7 @@ describe('lib.data', function() {
 });
 
 describe('lib.languages', function() {
-	describe('#Germany', function() {
+	describe('#Germany 🇩🇪', function() {
 		it('ISO1->languages', function() {
 			assert.include(lib.languages('276'), {
 				"alpha2": "de",
@@ -379,7 +422,7 @@ describe('lib.languages', function() {
 });
 
 describe('lib.currencies', function() {
-	describe('#Germany', function() {
+	describe('#Germany 🇩🇪', function() {
 		it('ISO1->currencies', function() {
 			assert.include(lib.currencies('276'), {
 				"currency": "Euro",
