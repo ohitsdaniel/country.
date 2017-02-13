@@ -144,7 +144,7 @@ country.regionsData('europe');       // complete region data by identifier...
 country.regionsData('Central Asia'); // ... or by name
 ```
 
-# Contribution & Data Sources
+## Contribution & Data Sources
 If you want to add additional country names to the list, feel free to do so in the `/lib/data/names.json` file. The structure should be clear.
 
 ```js
@@ -158,14 +158,12 @@ If you want to add additional country names to the list, feel free to do so in t
 
 To import the data into the library, run `make` in the root directory. This recreates the `/lib/data/masterData.json` file.
 
-# Data sources 
+## Data sources 
 * JSON dump of [`countrySynonyms`](https://rdrr.io/rforge/rworldmap/man/countrySynonyms.html)
 * [`i18n-iso-countries`](https://www.npmjs.com/package/i18n-iso-countries)
 * [Currency Code Services – ISO 4217 Maintenance Agency](https://www.currency-iso.org/dam/downloads/lists/list_one.xls)
 * [`country-data`](https://www.npmjs.com/package/country-data)
 * [Locale::Codes](http://search.cpan.org/~sbeck/Locale-Codes-3.42/lib/Locale/Codes.pod) (datasources also aknowledged there)
 
-
-
-
-
+## I don't need a JS library, I just need the data.
+Run `make` in the root directory of the project and copy the `/lib/data/masterData.json` file. This file contains all the mentioned data.
