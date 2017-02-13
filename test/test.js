@@ -191,7 +191,7 @@ describe('lib.ioc', function() {
 
 		it('Unsupported language', function() {
 			try {
-				assert.equal(lib.ioc('Deutschland', 'asdf'), 'GER');
+				lib.ioc('Deutschland', 'asdf');
 			} catch (err) {
 				assert(/INVALIDLANGUAGE/.test(err));
 			}
@@ -205,6 +205,49 @@ describe('lib.ioc', function() {
 
 		it('Exception Handling', function() {
 			assert.throws(lib.ioc, /INVALIDCODE|INVALIDFORMAT|INVALIDCOUNTRY|INVALIDLANGUAGE/);
+		});
+	});
+});
+
+describe('lib.callingCodes', function() {
+	describe('#Germany', function() {
+		it('ISO1->callingCodes', function() {
+			assert.include(lib.callingCodes('276'), '+49');
+		});
+
+		it('ISO2->callingCodes', function() {
+			assert.include(lib.callingCodes('DE'), '+49');
+		});
+
+		it('ISO3->callingCodes', function() {
+			assert.include(lib.callingCodes('DEU'), '+49');
+		});
+
+		it('Name->callingCodes', function() {
+			assert.include(lib.callingCodes('Germany', 'en'), '+49');
+		});
+	});
+	describe('#Exceptional behaviour', function() {
+		it('German name', function() {
+			assert.include(lib.callingCodes('Deutschland', 'de'), '+49');
+		});
+
+		it('Unsupported language', function() {
+			try {
+				lib.callingCodes('Deutschland', 'asdf');
+			} catch (err) {
+				assert(/INVALIDLANGUAGE/.test(err));
+			}
+		});
+
+		it('trim needed', function() {
+			assert.include(lib.callingCodes(' 276'), '+49');
+			assert.include(lib.callingCodes('276 '), '+49');
+			assert.include(lib.callingCodes(' 276 '), '+49');
+		});
+
+		it('Exception Handling', function() {
+			assert.throws(lib.callingCodes, /INVALIDCODE|INVALIDFORMAT|INVALIDCOUNTRY|INVALIDLANGUAGE/);
 		});
 	});
 });
