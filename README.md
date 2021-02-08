@@ -147,7 +147,7 @@ country.regionsData('Central Asia'); // ... or by name
 ## Contribution & Data Sources
 If you want to add additional country names to the list, feel free to do so in the `/lib/data/names.json` file. The structure should be clear.
 
-```js
+```json5
 {
 	"DE": {                        // ISO 3166-1 alpha-2 identifier
 		"en": ["Germany"],        // array of to be added names in the set locale
@@ -167,3 +167,9 @@ To import the data into the library, run `make` in the root directory. This recr
 
 ## I don't need a JS library, I just need the data.
 Run `make` in the root directory of the project and copy the `/lib/data/masterData.json` file. This file contains all the mentioned data.
+
+## Build / Test / Update
+In package json:
+- `npm test` - run tests
+- `npm run cleaner` - pipe out the master data
+- `npm run cleaner:update` - update master data
