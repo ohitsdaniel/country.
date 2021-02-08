@@ -1,6 +1,6 @@
 {
   "name": "countryinfo",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "ISO-codes, currencies, languages... All you need to know about countries.",
   "main": "./lib/countrysynonyms.js",
   "scripts": {
