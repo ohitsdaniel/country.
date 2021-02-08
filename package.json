@@ -41,5 +41,7 @@
     "url": "https://github.com/ohitsdaniel/countrysynonyms/issues"
   },
   "homepage": "https://github.com/ohitsdaniel/countrysynonyms#readme",
-  "engines" : { "node" : ">=6.9.3" }
+  "engines": {
+    "node": ">=6.9.3"
+  }
 }
