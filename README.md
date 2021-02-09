@@ -171,5 +171,4 @@ Run `make` in the root directory of the project and copy the `/lib/data/masterDa
 ## Build / Test / Update
 In package json:
 - `npm test` - run tests
-- `npm run cleaner` - pipe out the master data
-- `npm run cleaner:update` - update master data
+- `npm run cleaner` - update master data

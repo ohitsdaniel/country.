@@ -5,8 +5,7 @@
   "main": "./lib/countrysynonyms.js",
   "scripts": {
     "test": "mocha",
-    "cleaner": "node ./lib/data/cleaner.js",
-    "cleaner:update": "node ./lib/data/cleaner.js --update"
+    "cleaner": "node ./lib/data/cleaner.js"
   },
   "devDependencies": {
     "i18n-iso-countries": "^1.10.0",
