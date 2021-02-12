@@ -1,6 +1,6 @@
 {
   "name": "countryinfo",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "ISO-codes, currencies, languages... All you need to know about countries.",
   "main": "./lib/countrysynonyms.js",
   "scripts": {
@@ -8,12 +8,12 @@
     "cleaner": "node ./lib/data/cleaner.js"
   },
   "devDependencies": {
-    "i18n-iso-countries": "^1.10.0",
-    "xlsx": "^0.8.1",
-    "country-data": "^0.0.31",
-    "mocha": "~3.2.0",
     "chai": "~3.5.0",
-    "lodash": "~4.17.4"
+    "country-data": "^0.0.31",
+    "i18n-iso-countries": "^1.10.0",
+    "lodash": "~4.17.4",
+    "mocha": "^8.3.0",
+    "xlsx": "^0.8.1"
   },
   "repository": {
     "type": "git",
